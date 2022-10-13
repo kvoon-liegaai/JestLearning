@@ -6,10 +6,12 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "test:unit -w": "vue-cli-service test:unit --watch",
+    "test:unit -w": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@types/ramda": "^0.28.15",
+    "ramda": "^0.28.0",
     "vue": "^3.2.13"
   },
   "devDependencies": {
