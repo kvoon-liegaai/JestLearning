@@ -1,10 +1,10 @@
 import {shallowMount} from "@vue/test-utils";
 import Header from "@/components/Header/Header.vue";
-
+import {findTestWrapper} from "./utils/wrapper"
 describe("input 框", () => {
   it("包含 input 框", () => {
     const wrapper = shallowMount(Header)
-    const input = wrapper.find('[data-test="input"]');
+    const input = findTestWrapper(wrapper, "input");
     expect(input.exists()).toBe(true);
   })
 
@@ -18,7 +18,7 @@ describe("input 框", () => {
 
   it("inputValue should be changed when input field are changed", () => {
     const wrapper = shallowMount(Header);
-    const input = wrapper.find("[data-test='input']");
+    const input = findTestWrapper(wrapper, "input");
     input.setValue("kwongliegaai");
     const inputValue = wrapper.vm.inputValue;
     expect(inputValue).toBe("kwongliegaai");
@@ -26,7 +26,7 @@ describe("input 框", () => {
 
   it("Header 中 input 框输入 enter ，无内容，无反应", () => {
     const wrapper = shallowMount(Header);
-    const input = wrapper.find("[data-test='input']");
+    const input = findTestWrapper(wrapper, "input");
     input.setValue("");
     input.trigger("keyup.enter")
     // 断言 时间未被触发
